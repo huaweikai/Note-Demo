@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Note" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/gray</item>
+        <item name="colorPrimaryVariant">@color/gray</item>
+        <item name="colorOnPrimary">@color/gray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="android:textColor">@color/black</item>
+
+
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="ThemeOverlay.search" parent="Theme.Note">
+        <item name="android:editTextColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:background">@drawable/background</item>
+        <item name="android:searchIcon">@drawable/ic_baseline_search_24</item>
+    </style>
+    <style name="ThemeOverlay.Image" parent="Theme.Note">
+    </style>
+    <style name="ThemeOverlay.Down" parent="Theme.Note">
+        <item name="android:background">@drawable/background</item>
+    </style>
+
+    <style name="ThemeOverlay.noteColor" parent="Theme.Note">
+        <item name="android:background"></item>
+    </style>
+
+
+    <style name="ThemeOverlay.more" parent="Theme.Note">
+        <item name="android:tint">@color/black</item>
+    </style>
+
+
+    <style name="ThemeOverlay.selectColor" parent="Theme.Note">
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="ThemeOverlay.Button" parent="Theme.Note">
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
+</resources>
