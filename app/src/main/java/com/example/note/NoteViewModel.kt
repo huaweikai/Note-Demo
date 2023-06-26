@@ -2,8 +2,8 @@ package com.example.note
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.note.dao.Note
-import com.example.note.dao.NoteDao
+import com.example.note.bean.Note
+import com.example.note.db.NoteDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

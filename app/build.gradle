@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -51,7 +52,8 @@ dependencies {
     implementation libs.roundedimageview
     implementation libs.androidx.room.ktx
     implementation libs.androidx.room.runtime
-    kapt libs.androidx.room.compiler
+    ksp libs.androidx.room.compiler
+    implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.circleimageview
     implementation libs.ssp.android
     implementation libs.sdp.android

@@ -15,6 +15,8 @@ class NoteBottomSheetFragment : BottomSheetDialogFragment(
     private val binding get() = _binding!!
     private var selectedColor = "#171c26"
 
+
+
     private var noteId = -1
 
     companion object {
@@ -25,6 +27,10 @@ class NoteBottomSheetFragment : BottomSheetDialogFragment(
             fragment.noteId = id ?: -1
             return fragment
         }
+
+        val colorList = listOf(
+            "#4e33ff", "#ffd633", "#ffffff", "#ae3b76", "#0aebaf", "#ff7746", "#202734"
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

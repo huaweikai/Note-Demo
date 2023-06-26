@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.note.R
-import com.example.note.dao.Note
+import com.example.note.bean.Note
 import com.example.note.databinding.ItemNotesBinding
 
 class NotesAdapter : ListAdapter<Note, MyHolder>(Diff) {

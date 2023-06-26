@@ -1,6 +1,7 @@
-package com.example.note.dao
+package com.example.note.db
 
 import androidx.room.*
+import com.example.note.bean.Note
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,14 +16,14 @@ interface NoteDao {
     fun getSearchNote(title:String):List<Note>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotes(note:Note)
+    suspend fun insertNotes(note: Note)
 
-    @Delete
-    suspend fun deleteNote(note:Note)
+    @Query("DELETE FROM notes WHERE id =:noteId")
+    suspend fun deleteNote(noteId: Int)
 
     @Query("DELETE FROM notes WHERE id =:id")
     suspend fun deleteSpecificNote(id:Int)
 
     @Update
-    suspend fun updateNote(note:Note)
+    suspend fun updateNote(note: Note)
 }

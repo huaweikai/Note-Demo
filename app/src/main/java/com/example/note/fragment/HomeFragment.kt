@@ -14,14 +14,14 @@ import com.example.note.NoteViewModel
 import com.example.note.R
 import com.example.note.adapter.NotesAdapter
 import com.example.note.databinding.FragmentHomeBinding
+import com.example.note.util.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment: Fragment(R.layout.fragment_home) {
 
-    private var _bind: FragmentHomeBinding? = null
-    private val binding get() = _bind!!
+    private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
 
     val noteViewModel by activityViewModels<NoteViewModel>()
 
@@ -31,7 +31,6 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _bind = FragmentHomeBinding.bind(view)
         binding.addNotes.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_notesFragment)
         }
