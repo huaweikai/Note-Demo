@@ -1,0 +1,70 @@
+[versions]
+activity-ktx = "1.7.2"
+agp = "8.2.0-alpha09"
+andserver-api = "2.1.9"
+circleimageview = "3.1.0"
+constraintlayout = "2.1.4"
+easypermissions = "3.0.0"
+hilt-android = "2.44.2"
+kotlin = "1.8.10"
+core-ktx = "1.10.1"
+junit = "4.14-SNAPSHOT"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+lifecycle-runtime-ktx = "2.6.1"
+localbroadcastmanager = "1.1.0"
+material = "1.9.0"
+compose-version = "1.4.3"
+navigation-fragment-ktx = "2.6.0"
+permissionx = "1.7.1"
+room-ktx = "2.5.2"
+roundedimageview = "2.3.0"
+sdp-android = "1.0.6"
+ssp-android = "1.0.6"
+work-runtime = "2.8.1"
+
+[libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-ktx" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager" }
+androidx-material = { module = "androidx.compose.material:material", version.ref = "compose-version" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-ktx" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
+circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-version" }
+androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-version" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime" }
+androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "work-runtime" }
+andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver-api" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+easypermissions = { module = "pub.devrel:easypermissions", version.ref = "easypermissions" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
+plugin = { module = "com.yanzhenjie.andserver:plugin", version.ref = "andserver-api" }
+processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver-api" }
+roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview" }
+sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdp-android" }
+ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "ssp-android" }
+
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
+
+
+[bundles]
+

@@ -11,47 +11,46 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.note.R
-import com.example.note.dao.Notes
-import kotlinx.android.synthetic.main.fragment_notes.view.*
-import kotlinx.android.synthetic.main.item_notes.view.*
+import com.example.note.dao.Note
+import com.example.note.databinding.ItemNotesBinding
 
-class NotesAdapter : ListAdapter<Notes, MyHolder>(Diff) {
-    object Diff: DiffUtil.ItemCallback<Notes>() {
-        override fun areItemsTheSame(oldItem: Notes, newItem: Notes): Boolean {
+class NotesAdapter : ListAdapter<Note, MyHolder>(Diff) {
+    object Diff: DiffUtil.ItemCallback<Note>() {
+        override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
             return oldItem.id==newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Notes, newItem: Notes): Boolean {
-            return oldItem.equals(newItem)
+        override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem == newItem
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val holder= LayoutInflater.from(parent.context).inflate(R.layout.item_notes,parent,false)
-        return MyHolder(holder)
+        return MyHolder(ItemNotesBinding.bind(holder))
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val notes=getItem(position)
-        holder.itemView.smalltilte.text=notes.title
-        holder.itemView.smallsubtilte.text=notes.subTitle
-        holder.itemView.smalldatetime.text=notes.dateTime
+        holder.binding.smalltilte.text=notes.title
+        holder.binding.smallsubtilte.text=notes.subTitle
+        holder.binding.smalldatetime.text=notes.dateTime
         if(notes.color!=null){
-            holder.itemView.cardview.setCardBackgroundColor(Color.parseColor(notes.color))
+            holder.binding.cardview.setCardBackgroundColor(Color.parseColor(notes.color))
         }else{
-            holder.itemView.cardview.setCardBackgroundColor(Color.parseColor("#171c26"))
+            holder.binding.cardview.setCardBackgroundColor(Color.parseColor("#171c26"))
         }
         if(notes.imgPath!=""){
-            holder.itemView.smallimgNote.setImageBitmap(BitmapFactory.decodeFile(notes.imgPath))
-            holder.itemView.smallimgNote.visibility=View.VISIBLE
+            holder.binding.smallimgNote.setImageBitmap(BitmapFactory.decodeFile(notes.imgPath))
+            holder.binding.smallimgNote.visibility=View.VISIBLE
         }else{
-            holder.itemView.smallimgNote.visibility=View.GONE
+            holder.binding.smallimgNote.visibility=View.GONE
         }
         if(notes.webLink!=""){
-            holder.itemView.smalltextUri.text=notes.webLink
-            holder.itemView.smalltextUri.visibility=View.VISIBLE
+            holder.binding.smalltextUri.text=notes.webLink
+            holder.binding.smalltextUri.visibility=View.VISIBLE
         }else{
-            holder.itemView.smalltextUri.visibility=View.GONE
+            holder.binding.smalltextUri.visibility=View.GONE
         }
         holder.itemView.setOnClickListener {
             Bundle().apply {
@@ -62,5 +61,7 @@ class NotesAdapter : ListAdapter<Notes, MyHolder>(Diff) {
     }
 }
 
-class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MyHolder(
+    val binding: ItemNotesBinding
+) : RecyclerView.ViewHolder(binding.root) {
 }

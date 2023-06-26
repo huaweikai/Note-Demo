@@ -7,7 +7,7 @@
     android:theme="@style/ThemeOverlayColor.All"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotesFragment" >
+    tools:context=".fragment.NotesFragment" >
 
     <ImageView
         android:id="@+id/imgback"
