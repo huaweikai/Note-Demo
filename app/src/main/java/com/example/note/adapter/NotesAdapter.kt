@@ -3,6 +3,7 @@ package com.example.note.adapter
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +36,8 @@ class NotesAdapter : ListAdapter<Note, MyHolder>(Diff) {
         holder.binding.smalltilte.text=notes.title
         holder.binding.smallsubtilte.text=notes.subTitle
         holder.binding.smalldatetime.text=notes.dateTime
-        if(notes.color!=null){
-            holder.binding.cardview.setCardBackgroundColor(Color.parseColor(notes.color))
-        }else{
-            holder.binding.cardview.setCardBackgroundColor(Color.parseColor("#171c26"))
-        }
+        Log.e("TAG", "onBindViewHolder: ${notes.updateTime}", )
+        holder.binding.cardview.setCardBackgroundColor(Color.parseColor(notes.color))
         if(notes.imgPath!=""){
             holder.binding.smallimgNote.setImageBitmap(BitmapFactory.decodeFile(notes.imgPath))
             holder.binding.smallimgNote.visibility=View.VISIBLE
@@ -54,7 +52,7 @@ class NotesAdapter : ListAdapter<Note, MyHolder>(Diff) {
         }
         holder.itemView.setOnClickListener {
             Bundle().apply {
-                putInt("noteId",notes.id!!)
+                putInt("noteId",notes.id)
                 holder.itemView.findNavController().navigate(R.id.action_homeFragment_to_notesFragment,this)
             }
         }

@@ -18,9 +18,6 @@ data class Note(
     @ColumnInfo(name = "sub_title")
     val subTitle: String = "",
 
-    @ColumnInfo(name = "date_time")
-    val dateTime: String = dateString,
-
     @ColumnInfo(name = "note_text")
     val noteText: String = "",
 
@@ -36,5 +33,8 @@ data class Note(
         NoteBottomSheetFragment.colorList.size - 1
     )],
     @ColumnInfo(name = "update_time")
-    val updateTime: Long = System.currentTimeMillis()
+    val updateTime: Long = System.currentTimeMillis(),
+
+    @ColumnInfo(name = "date_time")
+    val dateTime: String = updateTime.dateString,
 )

@@ -55,7 +55,8 @@ class AddNoteViewModel @Inject constructor(
         }
         viewModelScope.launch {
             runCatching {
-                noteDao.insertNotes(note.copy(dateTime = dateString))
+                val date = System.currentTimeMillis()
+                noteDao.insertNotes(note.copy(dateTime = date.dateString, updateTime = date))
             }.onSuccess {
                 _screenStatusChannel.send(LCE.Success("保存成功", Unit))
                 _saveNoteChannel.send(Unit)
@@ -95,9 +96,11 @@ class AddNoteViewModel @Inject constructor(
             is ChangeNoteEvent.ChangeNoteColor -> {
                 _noteStateFlow.value.copy(color = event.color)
             }
+
             is ChangeNoteEvent.ChangeNoteImage -> {
                 _noteStateFlow.value.copy(imgPath = event.imagePath)
             }
+
             is ChangeNoteEvent.ChangeNoteContent -> {
                 _noteStateFlow.value.copy(
                     title = event.title,
@@ -105,6 +108,7 @@ class AddNoteViewModel @Inject constructor(
                     noteText = event.content
                 )
             }
+
             is ChangeNoteEvent.ChangeNoteLink -> {
                 val isLink = Patterns.WEB_URL.matcher(event.link ?: "").matches()
                 if (!isLink) {
@@ -131,6 +135,6 @@ sealed class ChangeNoteEvent {
         val title: String,
         val subTitle: String,
         val content: String
-    ): ChangeNoteEvent()
+    ) : ChangeNoteEvent()
 
 }
