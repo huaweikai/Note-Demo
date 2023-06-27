@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
-    android:paddingTop="@dimen/_15sdp"
-    android:theme="@style/ThemeOverlayColor.All"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.NotesFragment" >
+    android:paddingTop="@dimen/_15sdp"
+    android:theme="@style/ThemeOverlayColor.All"
+    tools:context=".fragment.EditNoteFragment">
 
     <ImageView
         android:id="@+id/imgback"
@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:src="@drawable/ic_back"
+        android:theme="@style/ThemeOverlay.more"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.more" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgdone"
@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:src="@drawable/ic_tick"
+        android:theme="@style/ThemeOverlay.more"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.more"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edNoteTitles"
@@ -35,36 +35,37 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:background="@null"
+        android:hint="笔记标题"
         android:inputType="text"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgback"
-        android:hint="笔记标题"
-        android:textColorHint="@color/gray"/>
+        app:layout_constraintTop_toBottomOf="@+id/imgback" />
+
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:paddingStart="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/edNoteTitles"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fontFamily="@font/manrope_bold"
         android:textColor="@color/gray"
         android:textSize="@dimen/_8ssp"
-        android:fontFamily="@font/manrope_bold" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edNoteTitles" />
+
     <LinearLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/date"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date">
 
         <View
             android:id="@+id/colorview"
@@ -72,177 +73,196 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_5sdp"
             android:background="@color/blue" />
-    <EditText
-        android:id="@+id/edsubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
-        android:hint="笔记副标题"
-        android:inputType="text"
-        android:background="@null"
-        android:textColorHint="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edNoteTitles" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lineUri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line1"
-        android:visibility="gone"
-        android:orientation="vertical">
-        <LinearLayout
+
+        <EditText
+            android:id="@+id/edsubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/edNotesUri"
-                android:layout_width="0dp"
+            android:background="@null"
+            android:hint="笔记副标题"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:textColorHint="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edNoteTitles" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@id/iv_more"
+        app:layout_constraintTop_toBottomOf="@id/line1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/lineUri"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:fontFamily="@font/manrope_regular"
-                android:hint="链接"
-                android:text="http://"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edNotesUri"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/manrope_regular"
+                        android:hint="链接"
+                        android:padding="@dimen/_10sdp"
+                        android:text="http://"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <ImageView
+                        android:id="@+id/iv_clear_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:src="@drawable/ic_baseline_cancel_24"
+                        android:theme="@style/ThemeOverlay.Image"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_web_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_link_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:backgroundTint="@color/accent"
+                        android:text="取消"
+                        android:textAllCaps="false"
+                        android:textColor="@color/lightblack" />
+
+                    <Button
+                        android:id="@+id/btn_link_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:backgroundTint="@color/accent"
+                        android:text="确定"
+                        android:textAllCaps="false"
+                        android:textColor="@color/lightblack" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lineWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/lineUri">
+
+                <TextView
+                    android:id="@+id/textUri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:autoLink="web"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_delete_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:src="@drawable/ic_delete"
+                    android:visibility="gone"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="@dimen/_300sdp"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/lineWeb">
+
+                <ImageView
+                    android:id="@+id/img_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/img_delete"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/ic_delete"
+                    android:theme="@style/ThemeOverlay.Image"
+                    app:tint="@color/black" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edNotesText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="@dimen/_500sdp"
+                android:layout_margin="@dimen/_10sdp"
                 android:background="@null"
+                android:fontFamily="@font/manrope_regular"
+                android:hint="笔记正文"
+                android:gravity="start"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10sdp"
                 android:textColorHint="@color/gray"
                 android:textSize="@dimen/_12ssp" />
-            <ImageView
-                android:id="@+id/imgdeleteeduri"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:gravity="center"
-                android:visibility="visible"
-                android:theme="@style/ThemeOverlay.Image"
-                android:src="@drawable/ic_baseline_cancel_24"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="end"
-            android:gravity="end"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp">
+    </androidx.core.widget.NestedScrollView>
 
-            <Button
-                android:id="@+id/btncancel"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30sdp"
-                android:backgroundTint="@color/accent"
-                android:text="取消"
-                android:textColor="@color/lightblack"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:textAllCaps="false"/>
-            <Button
-                android:id="@+id/btnright"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30sdp"
-                android:textColor="@color/lightblack"
-                android:backgroundTint="@color/accent"
-                android:text="确定"
-                android:textAllCaps="false"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/lineWeb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/lineUri"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/textUri"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:padding="@dimen/_10sdp"
-            android:visibility="gone"
-            android:autoLink="web"/>
-        <ImageView
-            android:id="@+id/imgdeleteuri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:gravity="center"
-            android:visibility="gone"
-            app:tint="@color/black"
-            android:src="@drawable/ic_delete"/>
-
-    </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/layoutImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/lineWeb">
-        <ImageView
-            android:id="@+id/imgNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-        <ImageView
-            android:id="@+id/imgDelete"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:visibility="gone"
-            android:theme="@style/ThemeOverlay.Image"
-            android:src="@drawable/ic_delete"/>
-    </RelativeLayout>
-
-    <EditText
-        android:id="@+id/edNotesText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:ellipsize="end"
-        android:fontFamily="@font/manrope_regular"
-        android:hint="笔记正文"
-        android:background="@null"
-        android:inputType="textMultiLine"
-        android:maxLines="1"
-        android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutImage" />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <ImageView
-            android:id="@+id/imgmore"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:src="@drawable/ic_more"
-            android:theme="@style/ThemeOverlay.more"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+        android:src="@drawable/ic_more"
+        android:theme="@style/ThemeOverlay.more" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

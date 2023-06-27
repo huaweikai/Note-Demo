@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
-            android:id="@+id/imgmore"
+            android:id="@+id/iv_more"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:src="@drawable/ic_more"
@@ -30,135 +30,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="@dimen/_5sdp">
-
-        <FrameLayout
-            android:id="@+id/fnote1"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_color"
+            android:layout_gravity="center"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_1" />
-
-            <ImageView
-                android:id="@+id/imgNote1"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_2" />
-
-            <ImageView
-                android:id="@+id/imgNote2"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_3" />
-
-            <ImageView
-                android:id="@+id/imgNote3"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_4" />
-
-            <ImageView
-                android:id="@+id/imgNote4"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_5" />
-
-            <ImageView
-                android:id="@+id/imgNote5"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_6" />
-
-            <ImageView
-                android:id="@+id/imgNote6"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/fnote7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5sdp">
-
-            <View
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:background="@drawable/note_color_7" />
-            <ImageView
-                android:id="@+id/imgNote7"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_gravity="center"
-                app:tint="@color/white" />
-        </FrameLayout>
+            android:layout_weight="0.8"
+            android:paddingVertical="@dimen/_5sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/layout_color_item"/>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.3"
             android:textSize="@dimen/_12ssp"
             android:layout_gravity="end|center"
             android:gravity="center"

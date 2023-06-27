@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.note.NoteViewModel
+import com.example.note.vm.NoteViewModel
 import com.example.note.R
 import com.example.note.adapter.NotesAdapter
 import com.example.note.databinding.FragmentHomeBinding

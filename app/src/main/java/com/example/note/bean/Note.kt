@@ -4,9 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.note.fragment.NoteBottomSheetFragment
+import com.example.note.util.dateString
 import java.io.Serializable
-import java.text.SimpleDateFormat
-import java.util.Locale
 import kotlin.random.Random
 
 @Entity(tableName = "Notes")
@@ -21,10 +20,7 @@ data class Note(
     val subTitle: String = "",
 
     @ColumnInfo(name = "date_time")
-    val dateTime: String = SimpleDateFormat(
-        "yyyy/M/dd hh:mm:ss",
-        Locale.getDefault()
-    ).format(System.currentTimeMillis()),
+    val dateTime: String = dateString,
 
     @ColumnInfo(name = "note_text")
     val noteText: String = "",

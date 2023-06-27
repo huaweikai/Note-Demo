@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Note</string>
+    <string name="permission_first_reject">You have declined our authorization request, please agree to the authorization, otherwise the function will not work properly!</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">cancel</string>
+    <string name="permission_reject_dont_ask_again">Application failed because some of the permissions we request are rejected by you or the system errors. Please go to the settings page to manually authorize, otherwise the function will not work properly!</string>
+    <string name="permission_denied">Permission Denied</string>
 </resources>

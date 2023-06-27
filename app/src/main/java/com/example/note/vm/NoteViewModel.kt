@@ -1,4 +1,4 @@
-package com.example.note
+package com.example.note.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

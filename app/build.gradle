@@ -47,8 +47,6 @@ dependencies {
     implementation libs.androidx.constraintlayout
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
-    implementation libs.androidx.localbroadcastmanager
-    implementation libs.easypermissions
     implementation libs.roundedimageview
     implementation libs.androidx.room.ktx
     implementation libs.androidx.room.runtime
@@ -59,6 +57,7 @@ dependencies {
     implementation libs.sdp.android
     implementation libs.hilt.android
     kapt libs.hilt.compiler
+    implementation libs.permissionx
 
 
 }
