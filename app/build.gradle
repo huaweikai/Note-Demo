@@ -17,7 +17,19 @@ android {
         versionCode 1
         versionName "1.0"
 
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = ["room.schemaLocation":
+//                                     "$projectDir/schemas".toString()]
+//            }
+//        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        // Adds exported schema location as test app assets.
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
     }
 
     buildTypes {
@@ -38,6 +50,10 @@ android {
     }
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas".toString())
+}
+
 dependencies {
 
     implementation libs.kotlin.stdlib
@@ -50,6 +66,8 @@ dependencies {
     implementation libs.roundedimageview
     implementation libs.androidx.room.ktx
     implementation libs.androidx.room.runtime
+    androidTestImplementation libs.androidx.junit.ktx
+    androidTestImplementation libs.androidx.espresso.core
     ksp libs.androidx.room.compiler
     implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.circleimageview
@@ -58,6 +76,8 @@ dependencies {
     implementation libs.hilt.android
     kapt libs.hilt.compiler
     implementation libs.permissionx
+    androidTestImplementation libs.androidx.room.testing
+    implementation libs.androidx.test.runner
 
 
 }

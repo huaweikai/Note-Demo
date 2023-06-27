@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.note.fragment.NoteBottomSheetFragment
 import com.example.note.util.dateString
-import java.io.Serializable
 import kotlin.random.Random
 
 @Entity(tableName = "Notes")
@@ -36,10 +35,6 @@ data class Note(
         0,
         NoteBottomSheetFragment.colorList.size - 1
     )],
-) : Serializable {
-
-
-    override fun toString(): String {
-        return "$title : $dateTime"
-    }
-}
+    @ColumnInfo(name = "update_time")
+    val updateTime: Long = System.currentTimeMillis()
+)

@@ -7,6 +7,6 @@ import java.util.Locale
 val dateString: String get() {
     return SimpleDateFormat(
         "yyyy/M/dd HH:mm:ss",
-        Locale.getDefault()
+        Locale.CHINA
     ).format(System.currentTimeMillis())
 }

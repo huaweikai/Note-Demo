@@ -2,6 +2,7 @@ package com.example.note.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.note.db.MIGRATION_1_2
 import com.example.note.db.NoteDao
 import com.example.note.db.NotesDatabase
 import dagger.Module
@@ -23,7 +24,9 @@ class AppModule {
         return Room.databaseBuilder(
             context,
             NotesDatabase::class.java, "notes"
-        ).build()
+        )
+            .addMigrations(MIGRATION_1_2)
+            .build()
     }
 
     @Provides

@@ -1,6 +1,7 @@
 [versions]
 activity-ktx = "1.7.2"
 agp = "8.2.0-alpha09"
+espresso = "3.5.1"
 andserver-api = "2.1.9"
 circleimageview = "3.1.0"
 constraintlayout = "2.1.4"
@@ -18,16 +19,20 @@ compose-version = "1.4.3"
 navigation-fragment-ktx = "2.6.0"
 permissionx = "1.7.1"
 room-ktx = "2.5.2"
+room-testing = "2.5.1"
 roundedimageview = "2.3.0"
 sdp-android = "1.0.6"
 ssp-android = "1.0.6"
 work-runtime = "2.8.1"
 ksp-version = "1.8.10-1.0.9"
+junit-ktx = "1.1.5"
+test-runner = "1.5.2"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-ktx" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "compose-version" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
@@ -35,6 +40,7 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-ktx" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room-ktx" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-version" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-version" }
@@ -56,6 +62,8 @@ processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "ands
 roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdp-android" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "ssp-android" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junit-ktx" }
+androidx-test-runner = {group = 'androidx.test', name = 'runner', version.ref = 'test-runner'}
 
 
 [plugins]
