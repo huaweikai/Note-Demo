@@ -60,27 +60,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_tick"
+            android:id="@+id/iv_settings"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:src="@drawable/permissionx_ic_setting"
             android:theme="@style/ThemeOverlay.Image" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:theme="@style/ThemeOverlay.Image"
-            android:src="@drawable/ic_image" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_link"
-            android:theme="@style/ThemeOverlay.Image" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

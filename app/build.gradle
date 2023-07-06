@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
     id 'com.google.devtools.ksp'
 }
 
@@ -12,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.note"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -78,6 +79,7 @@ dependencies {
     implementation libs.permissionx
     androidTestImplementation libs.androidx.room.testing
     implementation libs.androidx.test.runner
+    implementation implementation(project(':webDav'))
 
 
 }

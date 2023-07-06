@@ -50,6 +50,9 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             }
 
         })
+        binding.ivSettings.setOnClickListener {
+//            startActivity(Intent(requireContext(), SettingsActivity::class.java))
+        }
         initObserver()
     }
 
