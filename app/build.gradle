@@ -80,6 +80,8 @@ dependencies {
     androidTestImplementation libs.androidx.room.testing
     implementation libs.androidx.test.runner
     implementation implementation(project(':webDav'))
+    implementation libs.gson
+    implementation libs.perference
 
 
 }

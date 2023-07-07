@@ -23,6 +23,8 @@ junit-ktx = "1.1.5"
 test-runner = "1.5.2"
 okHttp = "4.11.0"
 kotlin-coroutines = "1.7.2"
+gson = "2.10.1"
+preference = "1.2.0"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity-ktx" }
@@ -52,6 +54,8 @@ ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "ssp-androi
 androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junit-ktx" }
 androidx-test-runner = {group = 'androidx.test', name = 'runner', version.ref = 'test-runner'}
 kotlinx-coroutine = { module="org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+perference = { group = "androidx.preference", name = "preference-ktx", version.ref = "preference" }
 
 
 [plugins]

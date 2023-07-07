@@ -1,14 +1,18 @@
 package com.example.note.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.note.vm.NoteViewModel
 import com.example.note.R
@@ -52,6 +56,12 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         })
         binding.ivSettings.setOnClickListener {
 //            startActivity(Intent(requireContext(), SettingsActivity::class.java))
+            val path = preferences.getString("back_path", null)
+            if (path == null) {
+                selectBackupPath.launch(null)
+            } else {
+                noteViewModel.backupToFile(path)
+            }
         }
         initObserver()
     }
@@ -65,4 +75,18 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             }
         }
     }
+
+    private val selectBackupPath = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
+        uri?.let {
+            val modeFlags =
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            requireContext().contentResolver.takePersistableUriPermission(uri, modeFlags)
+            preferences.edit {
+                putString("back_path", uri.toString())
+            }
+            noteViewModel.backupToFile(uri.toString())
+        }
+    }
+
+    private val preferences get() = PreferenceManager.getDefaultSharedPreferences(requireContext())
 }
