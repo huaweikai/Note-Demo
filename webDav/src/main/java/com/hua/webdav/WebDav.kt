@@ -17,6 +17,7 @@ import okhttp3.OkHttpClient
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import org.intellij.lang.annotations.Language
 import org.jsoup.Jsoup
 import org.jsoup.parser.Parser
@@ -98,6 +99,7 @@ open class WebDav(
         }
         OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .addNetworkInterceptor(authInterceptor)
             .build()
     }

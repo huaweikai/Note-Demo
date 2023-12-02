@@ -56,7 +56,7 @@ class AddNoteViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 val date = System.currentTimeMillis()
-                noteDao.insertNotes(note.copy(dateTime = date.dateString, updateTime = date))
+                noteDao.insertNote(note.copy(dateTime = date.dateString, updateTime = date))
             }.onSuccess {
                 _screenStatusChannel.send(LCE.Success("保存成功", Unit))
                 _saveNoteChannel.send(Unit)

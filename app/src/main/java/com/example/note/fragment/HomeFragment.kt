@@ -63,6 +63,14 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
                 noteViewModel.backupToFile(path)
             }
         }
+        binding.ivRestore.setOnClickListener {
+            val path = preferences.getString("back_path", null)
+            if (path == null) {
+                selectBackupPath.launch(null)
+            } else {
+                noteViewModel.restore(path)
+            }
+        }
         initObserver()
     }
 

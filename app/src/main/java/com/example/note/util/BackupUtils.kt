@@ -1,5 +1,7 @@
 package com.example.note.util
 
+import android.content.Context
+import android.net.Uri
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonWriter
@@ -7,6 +9,7 @@ import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.OutputStream
 import java.io.OutputStreamWriter
@@ -60,7 +63,28 @@ inline fun <reified T> fileToListT(path: String, fileName: String): List<T>? {
     return null
 }
 
+inline fun <reified T> Uri.fileToListT(context: Context): List<T>? {
+    runCatching {
+        context.contentResolver.openInputStream(this)?.use {
+            return gson.fromJsonArray<T>(it).getOrThrow()
+        }
+    }.onFailure {
+        it.printStackTrace()
+    }
+    return null
+}
+
 inline fun <reified T> Gson.fromJsonArray(inputStream: FileInputStream): Result<List<T>> {
+    return kotlin.runCatching {
+        val reader = InputStreamReader(inputStream)
+        fromJson(
+            reader,
+            TypeToken.getParameterized(List::class.java, T::class.java).type
+        ) as List<T>
+    }
+}
+
+inline fun <reified T> Gson.fromJsonArray(inputStream: InputStream): Result<List<T>> {
     return kotlin.runCatching {
         val reader = InputStreamReader(inputStream)
         fromJson(

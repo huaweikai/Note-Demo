@@ -65,6 +65,12 @@
             android:layout_height="@dimen/_22sdp"
             android:src="@drawable/permissionx_ic_setting"
             android:theme="@style/ThemeOverlay.Image" />
+        <ImageView
+            android:id="@+id/iv_restore"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:src="@drawable/permissionx_ic_setting"
+            android:theme="@style/ThemeOverlay.Image" />
 
     </LinearLayout>
 

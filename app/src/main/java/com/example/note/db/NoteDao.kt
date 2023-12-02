@@ -16,7 +16,10 @@ interface NoteDao {
     fun getSearchNote(title:String):List<Note>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotes(note: Note)
+    suspend fun insertNote(note: Note)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertNotes(notes: List<Note>)
 
     @Query("DELETE FROM notes WHERE id =:noteId")
     suspend fun deleteNote(noteId: Int)
